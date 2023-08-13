@@ -1,0 +1,71 @@
+<header>
+  <div>
+    <h1>Alunos Cadastrados</h1>
+  </div>
+</header>
+<body>
+  <div class="cadastro">
+    <h2>Cadastro de alunos</h2>
+    <button (click)="addAluno()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id.</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- nome Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let element">{{ element.nome }}</td>
+    </ng-container>
+
+    <!-- sobrenome Column -->
+    <ng-container matColumnDef="sobrenome">
+      <th mat-header-cell *matHeaderCellDef>Sobrenome</th>
+      <td mat-cell *matCellDef="let element">{{ element.sobrenome }}</td>
+    </ng-container>
+
+    <!-- idade Column -->
+    <ng-container matColumnDef="idade">
+      <th mat-header-cell *matHeaderCellDef>Idade</th>
+      <td mat-cell *matCellDef="let element">{{ element.idade }}</td>
+    </ng-container>
+
+    <!-- sexo Column -->
+    <ng-container matColumnDef="sexo">
+      <th mat-header-cell *matHeaderCellDef>Sexo</th>
+      <td mat-cell *matCellDef="let element">{{ element.sexo }}</td>
+    </ng-container>
+
+    <!-- acoes Column -->
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>acoes</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="editAluno(element.id)">
+            <mat-icon>create</mat-icon>
+            <span>Editar</span>
+          </button>
+          <button mat-menu-item (click)="deleteAluno(element.id)">
+            <mat-icon>delete</mat-icon>
+            <span>Excluir</span>
+          </button>
+        </mat-menu>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</body>

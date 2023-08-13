@@ -1,0 +1,22 @@
+.error{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: red;
+    font-weight: bolder    
+}
+
+.sucess{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: greenyellow;
+    font-weight: bolder
+}
+button{
+    background-color: transparent;
+    border:none;
+    color: aliceblue;
+}  

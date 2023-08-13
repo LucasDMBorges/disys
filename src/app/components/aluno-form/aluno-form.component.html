@@ -1,0 +1,68 @@
+<header>
+  <div>
+    <h1>Cadastro de alunos</h1>
+  </div>
+</header>
+<body>
+  <form [formGroup]="form">
+    <div>
+      <mat-form-field class="input-group">
+        <mat-label>Nome</mat-label>
+        <input matInput placeholder="nome" formControlName="nome" type="text" />
+      </mat-form-field>
+      <small *ngIf="fieldValid('nome')" class="error">
+        Campo vazio ou mal preenchido.
+      </small>
+    </div>
+    <div>
+      <mat-form-field class="input-group">
+        <mat-label>Sobrenome</mat-label>
+        <input
+          matInput
+          placeholder="sobrenome"
+          formControlName="sobrenome"
+          type="text"
+        />
+      </mat-form-field>
+      <small *ngIf="fieldValid('sobrenome')" class="error">
+        Campo vazio ou mal preenchido.
+      </small>
+    </div>
+    <div>
+      <mat-form-field class="input-group">
+        <mat-label>Idade</mat-label>
+        <input
+          matInput
+          placeholder="Idade"
+          formControlName="idade"
+          type="number"
+        />
+      </mat-form-field>
+      <small *ngIf="fieldValid('idade')" class="error">
+        Campo vazio ou mal preenchido.
+      </small>
+    </div>
+    <div>
+      <mat-form-field class="input-group">
+        <mat-label>Sexo</mat-label>
+        <mat-select placeholder="Selecione uma opção" formControlName="sexo">
+          <mat-option value="M">Masculino</mat-option>
+          <mat-option value="F">Feminino</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <small *ngIf="fieldValid('sexo')" class="error">
+        Campo vazio ou mal preenchido.
+      </small>
+    </div>
+    <div>
+      <button
+        mat-button
+        color="primary"
+        [disabled]="!form.valid"
+        (click)="saveAluno()"
+      >
+        Salvar
+      </button>
+    </div>
+  </form>
+</body>
